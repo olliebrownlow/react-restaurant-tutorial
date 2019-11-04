@@ -8,3 +8,4 @@ Tutorial to practice TDDing a React application. This particular application is 
 
 - Yarn (1.19.1)
 - Parcel (1.12.4)
+- react (16.11.0)
