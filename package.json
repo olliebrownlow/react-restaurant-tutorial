@@ -13,12 +13,25 @@
     "e2e-cli": "cypress run"
   },
   "devDependencies": {
+    "@babel/core": "^7.0.0-0",
+    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
+    "@babel/preset-env": "^7.7.1",
+    "@babel/preset-react": "^7.7.0",
+    "babel-core": "^7.0.0-0",
+    "babel-jest": "^24.9.0",
     "cypress": "3.1.3",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.15.1",
     "jest": "^24.9.0",
     "parcel-bundler": "^1.12.4"
   },
   "dependencies": {
     "react": "^16.11.0",
     "react-dom": "^16.11.0"
+  },
+  "jest": {
+    "setupFilesAfterEnv": [
+      "<rootDir>test/setupTests.js"
+    ]
   }
 }
