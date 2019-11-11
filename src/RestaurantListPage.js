@@ -12,7 +12,7 @@ export default class RestaurantListPage extends Component {
   handleAddRestaurant = newRestaurantName => {
     this.setState(state => ({
       showNewRestaurantForm: false,
-      restaurantNames: [newRestaurantName, ...state.restaurantNames]
+      restaurantNames: [newRestaurantName, ...state.restaurantNames],
     }));
   };
 

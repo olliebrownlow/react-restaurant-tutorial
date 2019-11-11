@@ -13,6 +13,7 @@ Tutorial to practice TDDing a React application. This particular application is 
 - Jest (24.9.0) -> unit testing
 - Enzyme (3.10.0) -> component testing
 - Eslint (6.6.0)
+- React Meterialize (3.4.1) -> styling
 
 ## Getting started
 
