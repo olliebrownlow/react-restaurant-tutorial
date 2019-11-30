@@ -10,8 +10,10 @@ export default class RestaurantListPage extends Component {
     this.setState(state => ({
       restaurantNames: [newRestaurantName, ...state.restaurantNames],
     }));
-    var elem = document.getElementById("addRestaurantModal");
-    var instance = M.Modal.getInstance(elem);
+    const elem = document.getElementById("addRestaurantModal");
+    // M throws kinting error but is necessary so:
+    // eslint-disable-next-line no-undef
+    const instance = M.Modal.getInstance(elem);
     instance.close();
   };
 
