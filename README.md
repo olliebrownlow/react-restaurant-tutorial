@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/olliebrownlow/react-restaurant-tutorial.svg?style=shield)](https://circleci.com/gh/olliebrownlow/react-restaurant-tutorial)
+
 # React TDD tutorial
 
 ## Opinion-Ate
