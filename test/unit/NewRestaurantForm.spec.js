@@ -26,7 +26,7 @@ describe("NewRestaurantForm", () => {
 
     it("clears the text field", () => {
       expect(
-        wrapper.find('input[data-test="newRestaurantName"]').props().value
+        wrapper.find('input[data-test="newRestaurantName"]').props().value,
       ).toEqual("");
     });
   });
