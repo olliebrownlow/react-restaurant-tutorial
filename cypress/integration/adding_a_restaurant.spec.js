@@ -4,16 +4,31 @@ describe("adding a restaurant", () => {
 
     cy.visit("http://localhost:1234");
 
+    // modal not shown on start
     cy.get('[data-test="newRestaurantName"]').should("not.be.visible");
 
+    // open modal
     cy.get('[data-test="addRestaurantButton"]').click();
 
-    cy.get('input[data-test="newRestaurantName"]').type(restaurantName);
+    // modal can be cancelled
+    cy.get('[data-test="addRestaurantModal"] button.modal-close').click();
 
-    cy.get('[data-test="saveNewRestaurantButton"]').click();
-
+    // modal not shown again
     cy.get('[data-test="newRestaurantName"]').should("not.be.visible");
 
+    // open modal
+    cy.get('[data-test="addRestaurantButton"]').click();
+
+    // modal allows typing of a restaurant name
+    cy.get('input[data-test="newRestaurantName"]').type(restaurantName);
+
+    // restaurant saved
+    cy.get('[data-test="saveNewRestaurantButton"]').click();
+
+    // modal not shown again
+    cy.get('[data-test="newRestaurantName"]').should("not.be.visible");
+
+    // added restaurant name visible
     cy.contains(restaurantName);
   });
 });
