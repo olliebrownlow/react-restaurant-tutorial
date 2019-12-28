@@ -5,12 +5,10 @@ import { Formik } from "formik";
 export default class NewRestaurantForm extends Component {
   validate = values => {
     const errors = {};
-    const className = "";
     if (!values.restaurantName) {
       errors.restaurantName = "Name cannot be blank";
       errors.className = "invalid";
     }
-    console.log(errors.className);
     return errors;
   };
 

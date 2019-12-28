@@ -11,7 +11,7 @@ export default class RestaurantListPage extends Component {
       restaurantNames: [newRestaurantName, ...state.restaurantNames],
     }));
     const elem = document.getElementById("addRestaurantModal");
-    // M throws kinting error but is necessary so:
+    // M throws linting error but is necessary so:
     // eslint-disable-next-line no-undef
     const instance = M.Modal.getInstance(elem);
     instance.close();
