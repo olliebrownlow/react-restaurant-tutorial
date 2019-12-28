@@ -16,11 +16,23 @@ describe("adding a restaurant", () => {
     // modal not shown again
     cy.get('[data-test="newRestaurantName"]').should("not.be.visible");
 
+    //modal displays validation errors
     // open modal
     cy.get('[data-test="addRestaurantButton"]').click();
 
+    // save restaurant without typing name
+    cy.get('[data-test="saveNewRestaurantButton"]').click();
+
+    // no name input so validation error displayed
+    cy.get(
+      'label[for="restaurantName"][data-error="Name cannot be blank"]',
+    ).should("be.visible");
+
     // modal allows typing of a restaurant name
-    cy.get('input[data-test="newRestaurantName"]').type(restaurantName);
+    cy.get('label[for="restaurantName"][data-error="Name cannot be blank"]')
+      .click() //to reselect the field or cypress thinks it is covered by the error message
+      .get('input[data-test="newRestaurantName"]')
+      .type(restaurantName);
 
     // restaurant saved
     cy.get('[data-test="saveNewRestaurantButton"]').click();
