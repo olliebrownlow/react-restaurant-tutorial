@@ -7,17 +7,16 @@ describe("NewRestaurantForm", () => {
     let saveHandler;
     let wrapper;
 
-    beforeEach(() => {
+    beforeEach(done => {
       saveHandler = jest.fn();
 
       wrapper = mount(<NewRestaurantForm onSave={saveHandler} />);
-      wrapper
-        .find('input[data-test="newRestaurantName"]')
-        .simulate("change", { target: { value: "Sushi Place" } });
+      wrapper.find('input[data-test="newRestaurantName"]').simulate("change", {
+        target: { id: "restaurantName", value: "Sushi Place" },
+      });
 
-      wrapper
-        .find('button[data-test="saveNewRestaurantButton"]')
-        .simulate("click");
+      wrapper.find("form").simulate("submit");
+      setTimeout(done, 0);
     });
 
     it("calls the onSave handler", () => {
@@ -25,6 +24,7 @@ describe("NewRestaurantForm", () => {
     });
 
     it("clears the text field", () => {
+      wrapper.update();
       expect(
         wrapper.find('input[data-test="newRestaurantName"]').props().value,
       ).toEqual("");
