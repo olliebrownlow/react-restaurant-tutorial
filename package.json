@@ -19,6 +19,8 @@
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
     "@babel/preset-env": "^7.7.1",
     "@babel/preset-react": "^7.7.0",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.4.0",
     "babel-core": "^7.0.0-0",
     "babel-eslint": "^10.0.3",
     "babel-jest": "^24.9.0",
@@ -38,7 +40,8 @@
     "materialize-css": "^1.0.0",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
-    "react-materialize": "3.5.0"
+    "react-materialize": "3.5.0",
+    "react-router-dom": "^5.1.2"
   },
   "jest": {
     "setupFilesAfterEnv": [

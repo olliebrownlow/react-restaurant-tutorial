@@ -13,24 +13,24 @@ describe("adding a restaurant", () => {
 
   function modalNotShownOnStart() {
     //modal not visible
-    cy.get('[data-test="newRestaurantName"]').should("not.be.visible");
+    cy.get('[data-testid="newRestaurantName"]').should("not.be.visible");
   }
 
   function modalCanBeCancelled() {
     // open modal
-    cy.get('[data-test="addRestaurantButton"]').click();
+    cy.get('[data-testid="addRestaurantButton"]').click();
     // modal can be cancelled with close button
-    cy.get('[data-test="cancelAddRestaurantButton"]').click();
+    cy.get('[data-testid="cancelAddRestaurantButton"]').click();
     // modal is now not visible
-    cy.get('[data-test="newRestaurantName"]').should("not.be.visible");
+    cy.get('[data-testid="newRestaurantName"]').should("not.be.visible");
   }
 
   function modalDisplaysValidationErrors() {
     // open modal
-    cy.get('[data-test="addRestaurantButton"]').click();
+    cy.get('[data-testid="addRestaurantButton"]').click();
 
     // click save without typing name
-    cy.get('[data-test="saveNewRestaurantButton"]').click();
+    cy.get('[data-testid="saveNewRestaurantButton"]').click();
 
     // no name input so validation error displayed
     cy.get(
@@ -38,21 +38,21 @@ describe("adding a restaurant", () => {
     ).should("be.visible");
 
     // close modal
-    cy.get('[data-test="cancelAddRestaurantButton"]').click();
+    cy.get('[data-testid="cancelAddRestaurantButton"]').click();
   }
 
   function modalClearsOutValidationErrorsWhenClosed() {
     // open modal
-    cy.get('[data-test="addRestaurantButton"]').click();
+    cy.get('[data-testid="addRestaurantButton"]').click();
 
     // click save without typing name
-    cy.get('[data-test="saveNewRestaurantButton"]').click();
+    cy.get('[data-testid="saveNewRestaurantButton"]').click();
 
     // close modal
-    cy.get('[data-test="cancelAddRestaurantButton"]').click();
+    cy.get('[data-testid="cancelAddRestaurantButton"]').click();
 
     // open modal
-    cy.get('[data-test="addRestaurantButton"]').click();
+    cy.get('[data-testid="addRestaurantButton"]').click();
 
     // validation error not displayed
     cy.get(
@@ -60,21 +60,21 @@ describe("adding a restaurant", () => {
     ).should("not.be.visible");
 
     // close modal
-    cy.get('[data-test="cancelAddRestaurantButton"]').click();
+    cy.get('[data-testid="cancelAddRestaurantButton"]').click();
   }
 
   function modalAddsNewRestaurant(restaurantName) {
     // open modal
-    cy.get('[data-test="addRestaurantButton"]').click();
+    cy.get('[data-testid="addRestaurantButton"]').click();
 
     // modal allows typing of a restaurant name
-    cy.get('input[data-test="newRestaurantName"]').type(restaurantName);
+    cy.get('input[data-testid="newRestaurantName"]').type(restaurantName);
 
     // restaurant saved
-    cy.get('[data-test="saveNewRestaurantButton"]').click();
+    cy.get('[data-testid="saveNewRestaurantButton"]').click();
 
     // modal now not visible
-    cy.get('[data-test="newRestaurantName"]').should("not.be.visible");
+    cy.get('[data-testid="newRestaurantName"]').should("not.be.visible");
 
     // added restaurant name is visible
     cy.contains(restaurantName);

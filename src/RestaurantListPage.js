@@ -32,14 +32,14 @@ export default class RestaurantListPage extends Component {
       <div>
         <Modal
           id="addRestaurantModal"
-          data-test="addRestaurantModal"
+          data-testid="addRestaurantModal"
           header="New Restaurant"
           options={{
             dismissible: false,
           }}
           actions={[]}
           trigger={
-            <Button data-test="addRestaurantButton">Add Restaurant</Button>
+            <Button data-testid="addRestaurantButton">Add Restaurant</Button>
           }
         >
           <NewRestaurantForm

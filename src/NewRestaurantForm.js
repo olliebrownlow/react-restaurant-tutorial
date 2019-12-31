@@ -38,21 +38,21 @@ export default class NewRestaurantForm extends Component {
           value={values.restaurantName}
           error={errors.restaurantName}
           onChange={handleChange}
-          data-test="newRestaurantName"
+          data-testid="newRestaurantName"
         />
       </Row>
       <Row>
         <Col>
           <Button
             type="button"
-            data-test="cancelAddRestaurantButton"
+            data-testid="cancelAddRestaurantButton"
             onClick={this.handleCancel({ resetForm })}
           >
             Cancel
           </Button>
         </Col>
         <Col>
-          <Button type="submit" data-test="saveNewRestaurantButton">
+          <Button type="submit" data-testid="saveNewRestaurantButton">
             Save
           </Button>
         </Col>
