@@ -13,9 +13,11 @@ Tutorial to practice TDDing a React application. This particular application is 
 - React (16.11.0)
 - Cypress (3.1.3) -> end-2-end testing
 - Jest (24.9.0) -> unit testing
-- Enzyme (3.10.0) -> component testing
+- React-testing-library (9.4.0) -> component testing
 - Eslint (6.6.0)
-- React Meterialize (3.4.1) -> styling
+- React Meterialize (3.5.0) -> styling
+- React-router-dom (5.1.2) -> routing
+- Formik (2.0.8) -> for building forms in React
 
 ## Getting started
 
