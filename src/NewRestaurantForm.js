@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Button, TextInput, Row } from "react-materialize";
+import { Button, TextInput, Row, Col } from "react-materialize";
 import { Formik } from "formik";
 
 export default class NewRestaurantForm extends Component {
@@ -20,7 +20,12 @@ export default class NewRestaurantForm extends Component {
     resetForm();
   };
 
-  renderForm = ({ values, errors, handleChange, handleSubmit }) => (
+  handleCancel = ({ resetForm }) => () => {
+    resetForm();
+    this.props.onCancel();
+  };
+
+  renderForm = ({ values, errors, handleChange, handleSubmit, resetForm }) => (
     <form onSubmit={handleSubmit}>
       <Row>
         <TextInput
@@ -37,9 +42,20 @@ export default class NewRestaurantForm extends Component {
         />
       </Row>
       <Row>
-        <Button type="submit" data-test="saveNewRestaurantButton">
-          Save
-        </Button>
+        <Col>
+          <Button
+            type="button"
+            data-test="cancelAddRestaurantButton"
+            onClick={this.handleCancel({ resetForm })}
+          >
+            Cancel
+          </Button>
+        </Col>
+        <Col>
+          <Button type="submit" data-test="saveNewRestaurantButton">
+            Save
+          </Button>
+        </Col>
       </Row>
     </form>
   );

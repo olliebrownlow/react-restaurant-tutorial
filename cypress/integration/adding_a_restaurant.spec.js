@@ -20,7 +20,7 @@ describe("adding a restaurant", () => {
     // open modal
     cy.get('[data-test="addRestaurantButton"]').click();
     // modal can be cancelled with close button
-    cy.get('[data-test="addRestaurantModal"] button.modal-close').click();
+    cy.get('[data-test="cancelAddRestaurantButton"]').click();
     // modal is now not visible
     cy.get('[data-test="newRestaurantName"]').should("not.be.visible");
   }
@@ -38,7 +38,7 @@ describe("adding a restaurant", () => {
     ).should("be.visible");
 
     // close modal
-    cy.get('[data-test="addRestaurantModal"] button.modal-close').click();
+    cy.get('[data-test="cancelAddRestaurantButton"]').click();
   }
 
   function modalClearsOutValidationErrorsWhenClosed() {
@@ -49,7 +49,7 @@ describe("adding a restaurant", () => {
     cy.get('[data-test="saveNewRestaurantButton"]').click();
 
     // close modal
-    cy.get('[data-test="addRestaurantModal"] button.modal-close').click();
+    cy.get('[data-test="cancelAddRestaurantButton"]').click();
 
     // open modal
     cy.get('[data-test="addRestaurantButton"]').click();
@@ -60,7 +60,7 @@ describe("adding a restaurant", () => {
     ).should("not.be.visible");
 
     // close modal
-    cy.get('[data-test="addRestaurantModal"] button.modal-close').click();
+    cy.get('[data-test="cancelAddRestaurantButton"]').click();
   }
 
   function modalAddsNewRestaurant(restaurantName) {
