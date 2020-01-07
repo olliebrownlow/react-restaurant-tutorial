@@ -9,6 +9,7 @@ describe("adding a dish", () => {
     goToRestaurantPage(restaurantName);
     modalNotShownAtTheStart();
     modalAddsNewDish(dishName);
+    dishesRetainedWhenLeavingPage(restaurantName, dishName);
   });
 
   function addRestaurant(restaurantName) {
