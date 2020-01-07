@@ -42,4 +42,10 @@ describe("adding a dish", () => {
     // added Dish name is visible
     cy.contains(dishName);
   }
+
+  function dishesRetainedWhenLeavingPage(restaurantName, dishName) {
+    cy.get('[data-testid="backButton"]').click();
+    cy.contains(restaurantName).click();
+    cy.contains(dishName);
+  }
 });

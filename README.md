@@ -18,6 +18,8 @@ Tutorial to practice TDDing a React application. This particular application is 
 - React Meterialize (3.5.0) -> styling
 - React-router-dom (5.1.2) -> routing
 - Formik (2.0.8) -> for building forms in React
+- Redux (4.0.5) -> for state management
+- React-Redux (7.1.3) -> for state management
 
 ## Getting started
 

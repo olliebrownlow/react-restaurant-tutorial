@@ -21,6 +21,9 @@ export default class RestaurantDetailPage extends Component {
     const { dishNames } = this.state;
     return (
       <div>
+        <Link to="/" data-testid="backButton">
+          Back
+        </Link>
         <Modal
           header="New Dish"
           id="addDishModal"
