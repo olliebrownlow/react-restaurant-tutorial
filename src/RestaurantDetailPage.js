@@ -7,8 +7,12 @@ import DishList from "./DishList";
 import { addDish } from "./store/dishes/actions";
 
 class RestaurantDetailPage extends Component {
-  handleAddDish = newDishName => {
-    this.props.addDish(newDishName);
+  handleAddDish = dishName => {
+    const restaurantName = this.props.match.params.name;
+    this.props.addDish({
+      restaurantName,
+      dishName,
+    });
     const elem = document.getElementById("addDishModal");
     // M throws linting error but is necessary so:
     // eslint-disable-next-line no-undef
@@ -18,6 +22,8 @@ class RestaurantDetailPage extends Component {
 
   render() {
     const { dishes } = this.props;
+    const restaurantName = this.props.match.params.name;
+    const restaurantDishes = dishes[restaurantName] || [];
     return (
       <div>
         <Link to="/" data-testid="backButton">
@@ -35,7 +41,10 @@ class RestaurantDetailPage extends Component {
           <NewDishForm onSave={this.handleAddDish} />
         </Modal>
         <Row>
-          <DishList dishNames={dishes} />
+          <DishList
+            restaurantName={restaurantName}
+            dishNames={restaurantDishes}
+          />
         </Row>
       </div>
     );
