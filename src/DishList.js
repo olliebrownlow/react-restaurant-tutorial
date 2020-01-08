@@ -1,8 +1,8 @@
 import React from "react";
 import { Collection, CollectionItem } from "react-materialize";
 
-const DishList = ({ dishNames }) => (
-  <Collection header="Dishes">
+const DishList = ({ restaurantName, dishNames }) => (
+  <Collection header={restaurantName}>
     <DishItems dishNames={dishNames} />
   </Collection>
 );

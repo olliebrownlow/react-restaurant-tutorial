@@ -1,11 +1,11 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import { Button, Modal, Row } from "react-materialize";
 import NewRestaurantForm from "./NewRestaurantForm";
 import RestaurantList from "./RestaurantList";
+import { addRestaurant } from "./store/restaurants/actions";
 
-export default class RestaurantListPage extends Component {
-  state = { restaurantNames: [] };
-
+class RestaurantListPage extends Component {
   closeModal = () => {
     const elem = document.getElementById("addRestaurantModal");
     // M throws linting error but is necessary so:
@@ -15,9 +15,7 @@ export default class RestaurantListPage extends Component {
   };
 
   handleAddRestaurant = newRestaurantName => {
-    this.setState(state => ({
-      restaurantNames: [newRestaurantName, ...state.restaurantNames],
-    }));
+    this.props.addRestaurant(newRestaurantName);
     this.closeModal();
   };
 
@@ -26,7 +24,7 @@ export default class RestaurantListPage extends Component {
   };
 
   render() {
-    const { restaurantNames } = this.state;
+    const { restaurants } = this.props;
 
     return (
       <div>
@@ -48,9 +46,21 @@ export default class RestaurantListPage extends Component {
           />
         </Modal>
         <Row>
-          <RestaurantList restaurantNames={restaurantNames} />
+          <RestaurantList restaurantNames={restaurants} />
         </Row>
       </div>
     );
   }
 }
+
+function mapStateToProps(state) {
+  return {
+    restaurants: state.restaurants,
+  };
+}
+
+const mapDispatchToProps = {
+  addRestaurant,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(RestaurantListPage);
