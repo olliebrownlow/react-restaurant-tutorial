@@ -5,6 +5,7 @@ module.exports = {
   env: {
     browser: true,
     "cypress/globals": true,
-    "jest/globals": true
-  }
+    es6: true,
+    "jest/globals": true,
+  },
 };
