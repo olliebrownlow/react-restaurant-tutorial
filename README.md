@@ -20,6 +20,8 @@ Tutorial to practice TDDing a React application. This particular application is 
 - Formik (2.0.8) -> for building forms in React
 - Redux (4.0.5) -> for state management
 - React-Redux (7.1.3) -> for state management
+- redux-thunk (2.3.0) -> for asynchronous redux actions
+- axios (0.19.1) -> for making HTTP requests
 
 ## Getting started
 
