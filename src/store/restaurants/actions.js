@@ -7,6 +7,10 @@ export const loadRestaurants = () => dispatch => {
   return api.get("/restaurants").then(responseObject => {
     const responseBody = responseObject.data;
     const restaurants = responseBody.data;
+    dispatch({
+      type: STORE_RESTAURANTS,
+      restaurants,
+    });
   });
 };
 

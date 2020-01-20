@@ -3,9 +3,13 @@ import { connect } from "react-redux";
 import { Button, Modal, Row } from "react-materialize";
 import NewRestaurantForm from "./NewRestaurantForm";
 import RestaurantList from "./RestaurantList";
-import { addRestaurant } from "./store/restaurants/actions";
+import { loadRestaurants, addRestaurant } from "./store/restaurants/actions";
 
 class RestaurantListPage extends Component {
+  componentDidMount() {
+    this.props.loadRestaurants;
+  }
+
   closeModal = () => {
     const elem = document.getElementById("addRestaurantModal");
     // M throws linting error but is necessary so:
@@ -46,7 +50,7 @@ class RestaurantListPage extends Component {
           />
         </Modal>
         <Row>
-          <RestaurantList restaurantNames={restaurants} />
+          <RestaurantList restaurants={restaurants} />
         </Row>
       </div>
     );
@@ -60,6 +64,7 @@ function mapStateToProps(state) {
 }
 
 const mapDispatchToProps = {
+  loadRestaurants,
   addRestaurant,
 };
 

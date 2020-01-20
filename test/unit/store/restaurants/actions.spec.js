@@ -3,6 +3,9 @@ import {
   loadRestaurants,
 } from "../../../../src/store/restaurants/actions";
 
+import api from "../../../../src/store/api";
+jest.mock("../../../../src/store/api");
+
 describe("restaurant actions", () => {
   describe("loadRestaurants", () => {
     it("stores restaurants retrieved from the api", () => {
@@ -23,6 +26,12 @@ describe("restaurant actions", () => {
         },
       ];
       const dispatch = jest.fn();
+
+      api.get.mockResolvedValue({
+        data: {
+          data: restaurants,
+        },
+      });
 
       return loadRestaurants()(dispatch).then(() => {
         expect(dispatch).toHaveBeenCalledWith({

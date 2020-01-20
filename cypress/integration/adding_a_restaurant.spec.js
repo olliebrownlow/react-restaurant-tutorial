@@ -1,15 +1,39 @@
 describe("adding a restaurant", () => {
   it("displays the restaurant in the list", () => {
+    const initialRestaurantName = "Spaghetti Place";
+
+    cy.server();
+    cy.route({
+      method: "GET",
+      url: "/restaurants",
+      response: {
+        data: [
+          {
+            type: "restaurants",
+            id: "1",
+            attributes: {
+              name: initialRestaurantName,
+            },
+          },
+        ],
+      },
+    });
+
     const restaurantName = "Sushi Place";
 
     cy.visit("http://localhost:1234");
 
+    restaurantsFromServerDisplayedAtStart(initialRestaurantName);
     modalNotShownOnStart();
     modalCanBeCancelled();
     modalDisplaysValidationErrors();
     modalClearsOutValidationErrorsWhenClosed();
     modalAddsNewRestaurant(restaurantName);
   });
+
+  function restaurantsFromServerDisplayedAtStart(initialRestaurantName) {
+    cy.contains(initialRestaurantName);
+  }
 
   function modalNotShownOnStart() {
     //modal not visible
